@@ -21,9 +21,11 @@ _NGBUDDY_SHARE=	${PREFIX}/share/ngbuddy
 
 do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/ngbuddy ${STAGEDIR}${PREFIX}/etc/rc.d/
-	${MKDIR} ${STAGEDIR}${_ZELTA_SHARE}
-	${INSTALL_DATA} ${WRKSRC}/share/ngbuddy/* ${STAGEDIR}${_ZELTA_SHARE}
-	${MKDIR} ${STAGEDIR}${_ZELTA_SHARE}/examples
-	${INSTALL_DATA} ${WRKSRC}/examples/* ${STAGEDIR}${_ZELTA_SHARE}/examples/
+	${MKDIR} ${STAGEDIR}${_NGBUDDY_SHARE}
+	${INSTALL_DATA} ${WRKSRC}/share/ngbuddy/* ${STAGEDIR}${_NGBUDDY_SHARE}
+	${MKDIR} ${STAGEDIR}${_NGBUDDY_SHARE}/examples
+	${INSTALL_DATA} ${WRKSRC}/examples/* ${STAGEDIR}${_NGBUDDY_SHARE}/examples/
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/man/man8/
+	${INSTALL_MAN} ${WRKSRC}/ngbuddy.8 ${STAGEDIR}${PREFIX}/share/man/man8/
 
 .include <bsd.port.mk>
