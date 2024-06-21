@@ -13,7 +13,7 @@ For more information, see ngbuddy(8) and the example jail configuration in:
 
     %%DATADIR%%/examples/
 
-Please submit bugs to: https://github.com/bellhyve/netgraph-buddy/tree/main
+Please submit bugs to: https://github.com/bellhyve/ngbuddy
 
 EOM
 }

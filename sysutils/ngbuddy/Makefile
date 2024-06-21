@@ -1,11 +1,11 @@
 PORTNAME=	ngbuddy
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.0-rc1
+DISTVERSION=	1.0
 CATEGORIES=	sysutils
 
 MAINTAINER=	daniel@belltech.it
 COMMENT=	Netgraph Buddy
-WWW=		https://github.com/bellhyve/netgraph-buddy
+WWW=		https://github.com/bellhyve/ngbuddy
 
 LICENSE=	BSD2CLAUSE
 
@@ -24,7 +24,8 @@ do-install:
 	${MKDIR} ${STAGEDIR}${_NGBUDDY_SHARE}
 	${INSTALL_DATA} ${WRKSRC}/share/ngbuddy/* ${STAGEDIR}${_NGBUDDY_SHARE}
 	${MKDIR} ${STAGEDIR}${_NGBUDDY_SHARE}/examples
-	${INSTALL_DATA} ${WRKSRC}/examples/* ${STAGEDIR}${_NGBUDDY_SHARE}/examples/
+	${INSTALL_DATA} ${WRKSRC}/examples/devfs.rules ${STAGEDIR}${_NGBUDDY_SHARE}/examples/
+	${INSTALL_DATA} ${WRKSRC}/examples/jail_skel.conf ${STAGEDIR}${_NGBUDDY_SHARE}/examples/
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/man/man8/
 	${INSTALL_MAN} ${WRKSRC}/ngbuddy.8 ${STAGEDIR}${PREFIX}/share/man/man8/
 
