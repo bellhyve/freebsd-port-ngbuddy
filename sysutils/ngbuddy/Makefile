@@ -1,10 +1,10 @@
 PORTNAME=	ngbuddy
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.0
+DISTVERSION=	1.1
 CATEGORIES=	sysutils
 
 MAINTAINER=	daniel@belltech.it
-COMMENT=	Netgraph Buddy
+COMMENT=	rc.d script for management of netgraph networks
 WWW=		https://github.com/bellhyve/ngbuddy
 
 LICENSE=	BSD2CLAUSE
@@ -17,16 +17,13 @@ NO_BUILD=	yes
 
 SUB_FILES=	pkg-message
 
-_NGBUDDY_SHARE=	${PREFIX}/share/ngbuddy
-
 do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/ngbuddy ${STAGEDIR}${PREFIX}/etc/rc.d/
-	${MKDIR} ${STAGEDIR}${_NGBUDDY_SHARE}
-	${INSTALL_DATA} ${WRKSRC}/share/ngbuddy/* ${STAGEDIR}${_NGBUDDY_SHARE}
-	${MKDIR} ${STAGEDIR}${_NGBUDDY_SHARE}/examples
-	${INSTALL_DATA} ${WRKSRC}/examples/devfs.rules ${STAGEDIR}${_NGBUDDY_SHARE}/examples/
-	${INSTALL_DATA} ${WRKSRC}/examples/jail_skel.conf ${STAGEDIR}${_NGBUDDY_SHARE}/examples/
-	${MKDIR} ${STAGEDIR}${PREFIX}/share/man/man8/
+	${MKDIR} ${STAGEDIR}${DATADIR}
+	${INSTALL_DATA} ${WRKSRC}/share/ngbuddy/* ${STAGEDIR}${DATADIR}
+	${MKDIR} ${STAGEDIR}${DATADIR}/examples
+	${INSTALL_DATA} ${WRKSRC}/examples/devfs.rules ${STAGEDIR}${DATADIR}/examples/
+	${INSTALL_DATA} ${WRKSRC}/examples/jail_skel.conf ${STAGEDIR}${DATADIR}/examples/
 	${INSTALL_MAN} ${WRKSRC}/ngbuddy.8 ${STAGEDIR}${PREFIX}/share/man/man8/
 
 .include <bsd.port.mk>
